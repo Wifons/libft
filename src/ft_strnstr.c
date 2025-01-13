@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wifons <wifons@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 20:10:31 by wifons            #+#    #+#             */
-/*   Updated: 2024/12/13 16:44:29 by wifons           ###   ########.fr       */
+/*   Created: 2024/12/13 13:39:30 by wifons            #+#    #+#             */
+/*   Updated: 2025/01/13 17:42:41 by wifons           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	const char	*last_occurence;
+	char	*b;
+	size_t	little_len;
 
-	last_occurence = NULL;
-	while (*s)
+	b = (char *)big;
+	little_len = ft_strlen(little);
+	if (little_len == 0 || big == little)
+		return (b);
+	while (*big && len >= little_len)
 	{
-		if (*s == (char)c)
-			last_occurence = s;
-		s++;
+		if (ft_strncmp(big, little, little_len) == 0)
+			return ((char *)big);
+		big++;
+		len--;
 	}
-	if ((char)c == '\0')
-		return ((char *)s);
-	return ((char *)last_occurence);
+	return (NULL);
 }

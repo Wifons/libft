@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wifons <wifons@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 03:35:25 by wifons            #+#    #+#             */
-/*   Updated: 2024/12/13 16:42:37 by wifons           ###   ########.fr       */
+/*   Created: 2024/11/04 15:16:57 by wifons            #+#    #+#             */
+/*   Updated: 2025/01/13 17:42:41 by wifons           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
-char	*ft_strdup(const char *s)
+int	ft_isalpha(int c)
 {
-	char		*dup;
-	size_t		len;
-
-	len = ft_strlen(s);
-	dup = (char *)malloc((len + 1) * sizeof(char));
-	if (!dup)
-		return (NULL);
-	ft_memcpy(dup, s, len + 1);
-	return (dup);
+	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
 }

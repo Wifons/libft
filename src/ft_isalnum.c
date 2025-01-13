@@ -1,32 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wifons <wifons@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/13 13:39:30 by wifons            #+#    #+#             */
-/*   Updated: 2024/12/13 16:43:26 by wifons           ###   ########.fr       */
+/*   Created: 2024/11/05 15:31:26 by wifons            #+#    #+#             */
+/*   Updated: 2025/01/13 17:42:41 by wifons           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+int	ft_isalnum(int c)
 {
-	char	*b;
-	size_t	little_len;
-
-	b = (char *)big;
-	little_len = ft_strlen(little);
-	if (little_len == 0 || big == little)
-		return (b);
-	while (*big && len >= little_len)
-	{
-		if (ft_strncmp(big, little, little_len) == 0)
-			return ((char *)big);
-		big++;
-		len--;
-	}
-	return (NULL);
+	return (ft_isalpha(c) || ft_isdigit(c));
 }

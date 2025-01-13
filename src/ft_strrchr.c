@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wifons <wifons@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 18:58:17 by wifons            #+#    #+#             */
-/*   Updated: 2024/12/13 17:32:12 by wifons           ###   ########.fr       */
+/*   Created: 2024/11/08 20:10:31 by wifons            #+#    #+#             */
+/*   Updated: 2025/01/13 17:42:56 by wifons           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+char	*ft_strrchr(const char *s, int c)
 {
-	ssize_t	ret;
+	const char	*last_occurence;
 
-	ret = write(fd, &c, 1);
-	(void)ret;
+	last_occurence = NULL;
+	while (*s)
+	{
+		if (*s == (char)c)
+			last_occurence = s;
+		s++;
+	}
+	if ((char)c == '\0')
+		return ((char *)s);
+	return ((char *)last_occurence);
 }

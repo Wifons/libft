@@ -1,5 +1,6 @@
 NAME = libft.a
-SRC = $(wildcard *.c)
+SRC_DIR = src
+SRC = $(wildcard $(SRC_DIR)/*.c)
 OBJ = $(SRC:.c=.o)
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror

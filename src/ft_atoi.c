@@ -6,11 +6,11 @@
 /*   By: wifons <wifons@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 13:44:31 by wifons            #+#    #+#             */
-/*   Updated: 2024/12/13 16:35:32 by wifons           ###   ########.fr       */
+/*   Updated: 2025/01/13 17:42:41 by wifons           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
 static int	is_whitespace(char c)
 {

@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wifons <wifons@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 03:17:01 by wifons            #+#    #+#             */
-/*   Updated: 2024/12/13 16:41:20 by wifons           ###   ########.fr       */
+/*   Created: 2024/12/13 13:29:03 by wifons            #+#    #+#             */
+/*   Updated: 2025/01/13 17:42:41 by wifons           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	void		*ptr;
-	size_t		total_size;
+	const unsigned char	*ptr;
+	unsigned char		uc;
+	size_t				i;
 
-	total_size = nmemb * size;
-	if (nmemb != 0 && total_size / nmemb != size)
-		return (NULL);
-	ptr = malloc(size * nmemb);
-	if (!ptr)
-		return (NULL);
-	ft_bzero(ptr, total_size);
-	return (ptr);
+	ptr = (const unsigned char *)s;
+	uc = (unsigned char)c;
+	i = 0;
+	while (i < n)
+	{
+		if (ptr[i] == uc)
+			return ((void *)(ptr + i));
+		i++;
+	}
+	return (NULL);
 }
