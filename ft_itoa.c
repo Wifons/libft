@@ -6,11 +6,11 @@
 /*   By: wifons <wifons@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 17:38:24 by wifons            #+#    #+#             */
-/*   Updated: 2025/01/13 17:42:41 by wifons           ###   ########.fr       */
+/*   Updated: 2025/01/13 18:05:28 by wifons           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 
 static size_t	get_num_len(int n)
 {

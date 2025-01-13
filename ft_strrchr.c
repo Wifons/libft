@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wifons <wifons@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 18:57:25 by wifons            #+#    #+#             */
-/*   Updated: 2025/01/13 17:43:14 by wifons           ###   ########.fr       */
+/*   Created: 2024/11/08 20:10:31 by wifons            #+#    #+#             */
+/*   Updated: 2025/01/13 18:05:28 by wifons           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+char	*ft_strrchr(const char *s, int c)
 {
-	size_t	dst_len;
-	size_t	src_len;
-	size_t	i;
+	const char	*last_occurence;
 
-	src_len = ft_strlen(src);
-	if (!src || size == 0)
-		return (src_len);
-	dst_len = ft_strlen(dst);
-	if (size <= dst_len)
-		return (size + src_len);
-	i = 0;
-	while (src[i] && (dst_len + i) < (size - 1))
+	last_occurence = NULL;
+	while (*s)
 	{
-		dst[dst_len + i] = src[i];
-		i++;
+		if (*s == (char)c)
+			last_occurence = s;
+		s++;
 	}
-	dst[dst_len + i] = '\0';
-	return (dst_len + src_len);
+	if ((char)c == '\0')
+		return ((char *)s);
+	return ((char *)last_occurence);
 }
