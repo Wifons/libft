@@ -6,7 +6,7 @@
 /*   By: wifons <wifons@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 15:50:51 by wifons            #+#    #+#             */
-/*   Updated: 2025/01/13 16:25:10 by wifons           ###   ########.fr       */
+/*   Updated: 2025/01/13 18:55:26 by wifons           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,6 @@ void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
 void		ft_putendl_fd(char *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
+char		*ft_itoa_base(unsigned long num, int base, char is_upper);
 
 #endif
