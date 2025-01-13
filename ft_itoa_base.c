@@ -6,7 +6,7 @@
 /*   By: wifons <wifons@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 18:53:18 by wifons            #+#    #+#             */
-/*   Updated: 2025/01/13 20:07:39 by wifons           ###   ########.fr       */
+/*   Updated: 2025/01/13 20:26:48 by wifons           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,6 @@ static int validate_base(const char *base, int *base_len)
 		i++;
 	}
 	return (1);
-}
-
-static int get_n_len(long num, int base_len)
-{
-	int	len;
-
-	len = (num <= 0);
-	while (num)
-	{
-		num /= base_len;
-		len++;
-	}
-	return (len);
 }
 
 static int handle_zero_case(char *result, long n, const char *base)
@@ -82,7 +69,7 @@ char	*ft_itoa_base(int num, const char *base)
 
 	if (!validate_base(base, &base_len))
 		return (NULL);
-	n_len = get_n_len(n, base_len);
+	n_len = ft_numlen_base(n, base_len);
 	result = ft_calloc(n_len + 1, sizeof(char));
 	if (!result)
 		return (NULL);
