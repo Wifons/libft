@@ -6,7 +6,7 @@
 /*   By: wifons <wifons@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 15:50:51 by wifons            #+#    #+#             */
-/*   Updated: 2025/01/14 20:27:45 by wifons           ###   ########.fr       */
+/*   Updated: 2025/01/14 20:39:51 by wifons           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void		ft_putnbr_fd(int n, int fd);
 char		*ft_itoa_base(int num, const char *base);
 int			ft_numlen_base(long n, int base_len);
 ssize_t		ft_putptr(void *ptr);
-ssize_t		ft_puthex(unsigned int n);
+ssize_t		ft_puthex(unsigned int n, int uppercase);
 ssize_t		ft_putnbr(int n);
 ssize_t		ft_putstr(char *str);
 ssize_t		ft_putchar(int c);
