@@ -6,13 +6,13 @@
 /*   By: wifons <wifons@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 18:53:18 by wifons            #+#    #+#             */
-/*   Updated: 2025/01/13 20:26:48 by wifons           ###   ########.fr       */
+/*   Updated: 2025/01/14 20:28:00 by wifons           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int validate_base(const char *base, int *base_len)
+static int	validate_base(const char *base, int *base_len)
 {
 	int	i;
 
@@ -29,7 +29,7 @@ static int validate_base(const char *base, int *base_len)
 	return (1);
 }
 
-static int handle_zero_case(char *result, long n, const char *base)
+static int	handle_zero_case(char *result, long n, const char *base)
 {
 	if (n == 0)
 	{
@@ -39,7 +39,7 @@ static int handle_zero_case(char *result, long n, const char *base)
 	return (0);
 }
 
-static long handle_sign(char *result, long n)
+static long	handle_sign(char *result, long n)
 {
 	if (n < 0)
 	{
@@ -47,15 +47,6 @@ static long handle_sign(char *result, long n)
 		return (-n);
 	}
 	return (n);
-}
-
-static void convert_to_base(char *result, long n, const char *base, int base_len, int len)
-{
-	while (n)
-	{
-		result[--len] = base[n % base_len];
-		n /= base_len;
-	}
 }
 
 char	*ft_itoa_base(int num, const char *base)
@@ -66,7 +57,6 @@ char	*ft_itoa_base(int num, const char *base)
 	long	n;
 
 	n = num;
-
 	if (!validate_base(base, &base_len))
 		return (NULL);
 	n_len = ft_numlen_base(n, base_len);
@@ -76,6 +66,10 @@ char	*ft_itoa_base(int num, const char *base)
 	if (handle_zero_case(result, n, base))
 		return (result);
 	n = handle_sign(result, n);
-	convert_to_base(result, n, base, base_len, n_len);
+	while (n)
+	{
+		result[--n_len] = base[n % base_len];
+		n /= base_len;
+	}
 	return (result);
 }

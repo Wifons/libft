@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wifons <wifons@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 18:49:53 by wifons            #+#    #+#             */
-/*   Updated: 2025/01/14 18:47:49 by wifons           ###   ########.fr       */
+/*   Created: 2025/01/14 20:20:15 by wifons            #+#    #+#             */
+/*   Updated: 2025/01/14 20:20:21 by wifons           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+ssize_t	ft_putnbr(int n)
 {
-	size_t	src_len;
-	size_t	i;
+	char	*str;
+	ssize_t	len;
 
-	src_len = ft_strlen(src);
-	if (size == 0)
-		return (src_len);
-	i = 0;
-	while (src[i] && i < (size - 1))
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (src_len);
+	str = ft_itoa(n);
+	if (!str)
+		return (-1);
+	len = ft_putstr(str);
+	free(str);
+	return (len);
 }

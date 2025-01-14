@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wifons <wifons@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 18:49:53 by wifons            #+#    #+#             */
-/*   Updated: 2025/01/14 18:47:49 by wifons           ###   ########.fr       */
+/*   Created: 2025/01/14 20:18:57 by wifons            #+#    #+#             */
+/*   Updated: 2025/01/14 20:30:09 by wifons           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+ssize_t	ft_putptr(void *ptr)
 {
-	size_t	src_len;
-	size_t	i;
+	char	*str;
+	ssize_t	len;
 
-	src_len = ft_strlen(src);
-	if (size == 0)
-		return (src_len);
-	i = 0;
-	while (src[i] && i < (size - 1))
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (src_len);
+	if (ft_putstr("0x") == -1)
+		return (-1);
+	if (ptr == 0)
+		return (ft_putstr("0"));
+	str = ft_itoa_base((unsigned long)ptr, "0123456789abcdef");
+	if (!str)
+		return (-1);
+	len = ft_putstr(str);
+	free(str);
+	return (len + 2);
 }
